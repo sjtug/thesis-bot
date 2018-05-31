@@ -36,7 +36,7 @@ module.exports = (robot) => {
       'label/macOS': 'os/macOS',
       '苹果': 'os/macOS',
       'apple': 'os/macOS',
-      'macOS': 'os/macOS',
+      'macos': 'os/macOS',
       'label/windows': 'os/Windows',
       'windows': 'os/Windows',
       'label/sharelatex': 'platform/ShareLaTeX',
@@ -49,7 +49,8 @@ module.exports = (robot) => {
       'enhancement': 'type/enhancement',
       'feature': 'type/feature'
     }
-    const str = context.payload.issue.body + context.payload.issue.title
+    var str = context.payload.issue.body + context.payload.issue.title
+    str = str.toLowerCase()
     for (var key in labelMap) {
       if (str.includes(key)) {
         context.github.issues.addLabels({...info, labels: [labelMap[key]]})
