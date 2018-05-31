@@ -12,6 +12,8 @@ module.exports = (robot) => {
       number: context.payload.issue.number
     }
     const labelMap = {
+      'question': 'type/question',
+      '问题': 'type/question',
       'label/bachelor': 'area/bachelor',
       '本科': 'area/bachelor',
       'bachelor': 'area/bachelor',
